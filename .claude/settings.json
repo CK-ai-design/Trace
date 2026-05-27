@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import sys,json,subprocess; d=json.load(sys.stdin); f=(d.get('tool_input') or {}).get('file_path',''); subprocess.run(['cmd','/c','npx','prettier','--write',f], capture_output=True) if f.endswith('index.html') else None\"",
+            "timeout": 30,
+            "statusMessage": "Formatting index.html..."
+          }
+        ]
+      }
+    ]
+  }
+}
