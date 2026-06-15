@@ -3024,7 +3024,8 @@
         });
 
         form.querySelectorAll(".wl-check").forEach(function (lbl) {
-          lbl.addEventListener("click", function () {
+          lbl.addEventListener("click", function (e) {
+            e.preventDefault();
             this.classList.toggle("active");
             const cb = this.querySelector("input[type=checkbox]");
             cb.checked = !cb.checked;
