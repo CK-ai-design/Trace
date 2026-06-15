@@ -1,104 +1,136 @@
-# Changelog
+# TRACE — Change Log / Work Log
+
+Project: TRACE Campaign Landing Page
+Live URL: https://ck-ai-design.github.io/Trace/
+Repository: https://github.com/CK-ai-design/Trace
 
 ---
 
-## [2026-06-15] — Light theme refresh: warmer website, readable waitlist
+## How to use this log
 
-### Design
-- **Removed all large dark ink backgrounds from the website.** Sections that were black/near-black are now warm off-white or paper beige:
-  - `.opening` section: `var(--ink)` → `var(--paper)` (#f2ece0). The "still" watermark adjusted to faint dark-on-light.
-  - Product copy panes (odd, previously ink): `var(--ink)` → `#EAE3D6` (warm stone).
-  - `.final-cta` (waitlist section): `var(--ink)` → `var(--cream)` (#faf7f1).
-- **Waitlist section redesigned as a premium light card.** `.final-inner` now has white background, 1px soft border, warm shadow, and 56px padding — reads as a distinct elevated card on the cream background.
-- Product copy pane text (headings, body, price values) updated from cream/light to `var(--ink)` / `var(--grey)` — readable on new warm stone background.
+Add a new entry at the **top** of the log after every work session.
+Copy the template below and fill in each field.
 
-### Interaction / Form
-- **All `.wl-*` form colors flipped from light-on-dark to dark-on-light.** Every rgba of `rgba(244,236,224,...)` replaced with the dark-ink equivalent for legibility on white card.
-- Email input, country dropdown, product cards, checkboxes, price buttons: now show `#FAF8F5` background, soft ink border, clear dark text.
-- Dropdown `<option>` background changed from `#18140f` (black) to `#FFFFFF` — browser-native options now readable.
-- Form field borders rounded (8px) to match app UI premium feel.
-- Submit button, product cards, price buttons all get matching `8px` border-radius.
-- Focus states updated: amber border replaces light-on-dark glow.
-
-### Typography
-- `.final-body` color: `rgba(244,236,224,0.38)` → `var(--grey)` — much higher contrast.
-- `.final-label` color: `rgba(201,160,85,0.45)` → `var(--amber)` — full amber on light.
-- `.final-note` and `.launch-status` colors updated from near-invisible cream to readable `rgba(24,20,15,0.3)`.
-- Form field labels (`.wl-label`) updated to `rgba(24,20,15,0.45)` — clearly readable.
-- Checkbox and price button text updated from barely-visible cream shades to `rgba(24,20,15,0.55)`.
-
-### Responsive
-- Mobile breakpoint padding for `.final-cta` and `.final-inner` card adjusted for small screens.
-
-All notable changes to the Trace landing page are documented here.
-
-Format: `[YYYY-MM-DD] Category — Description`
-Categories: **Content**, **Design**, **Layout**, **Interaction**, **Tooling**
+```
+---
+Date: YYYY-MM-DD
+Time: HH:MM (timezone)
+Changed by: [Name / Claude / both]
+What changed: [Short summary]
+Why: [Reason or goal]
+Files affected: [list files]
+Status: Done / Pending / Need Review
+Next action: [What needs to happen next, if anything]
+---
+```
 
 ---
 
-## [2026-06-15] — Product naming + waitlist upgrade
-
-### Content
-- **Product family renamed to official 3-product lineup:** Trace Nær (Keychain Display), Trace Ro (Desktop Display), Trace Vid (Wall Display)
-- Product lineup cards: "Pocket display" → "Keychain display", "Living room display" → "Desktop display", "Statement display" → "Wall display"
-- Product phase labels updated: "The Pocket Display" → "The Keychain Display", "The Living Room Display" → "The Desktop Display", "The Statement Display" → "The Wall Display"
-- Reward card description: "The pocket display." → "The keychain display."
-- Reward bundle description: "pocket and kitchen" → "keychain display and home display"
-- Alt text updated: removed "magnetic" descriptor from Trace Hjem images; updated Trace Ro from "desk" to "desktop"
-- README.md: product table updated to reflect new 3-product family with categories and phases
-
-### Interaction
-- **Waitlist form upgraded for market validation:** added 4 new fields — product interest (required), location dropdown (required), use-case checkboxes (optional), expected price range (optional)
-- Product interest: styled radio cards for Trace Nær, Trace Ro, Trace Vid — single-select, required
-- Location: 11-country dropdown (France, Germany, Denmark, UK, Netherlands, Belgium, Sweden, Norway, US, Canada, Other) — required
-- Use case: 7 checkbox options (Family memories, Children & grandparents, Travel memories, Art & photography, Home decoration, Gifts, Other) — optional, 2-column grid
-- Price range: 4 Trace Nær price tiers (Under €49, €49–69, €69–89, €89+) — optional
-- All fields submit as JSON to Formspree (`https://formspree.io/f/maqzvqbw`) with keys: `email`, `product`, `location`, `use_case`, `price_range`
-- Success state updated: "You're on the list." + "We'll let you know when Trace becomes available." — replaces old inline button mutation
-- Form validates email, product, and location before submission; flashes red border on missing required fields
-
-### Design
-- New `.wl-*` CSS component system for the extended form: radio cards, select dropdown, checkboxes, price pills — all in TRACE visual language (dark ink background, amber accent, muted cream text, DM Mono labels, Cormorant Garamond product names)
-- Mobile responsive: product cards and checkboxes collapse to single column below 520px
-- Success state uses italic Cormorant Garamond headline + DM Mono label in sage — matches existing brand motion
-
-### Tooling
-- URGENT FIX (2026-06-15 earlier): Connected waitlist form to live Formspree endpoint; added `Content-Type: application/json` header
+## Work Log
 
 ---
 
-## [2026-05-27]
+Date: 2026-06-15
+Time: Session 4
+Changed by: Claude (with Cathy)
+What changed: Fixed checkbox bug — "What would you use Trace for?" options were not selectable.
+Why: Clicking a label wrapping a hidden checkbox fired the toggle handler twice (browser dispatches a synthetic click back to the input which bubbles up), cancelling itself out. Added e.preventDefault() to stop the double-fire.
+Files affected: index.html
+Status: Done
+Next action: Monitor Formspree dashboard to confirm use_case values are arriving with submissions.
 
-### Content
-- Updated page title: removed "| Kickstarter" — page now lives on GitHub Pages, not Kickstarter platform
-- Hero CTA: "Fund Now" → "Join the Waitlist" (links to `#waitlist` anchor)
-- Stats bar: replaced funding progress (€136,400 / 68% / 14 days) with soft-launch status — "Open / Waitlist status", "Pre-orders opening soon / Early access", "3 / Display sizes", "2026 / Est. delivery"
-- Sticky header stat: "€136,400 raised · 68% · 14 days left" → "Pre-orders opening soon · Waitlist now open"
-- Sticky header CTA: "Fund Now" → "Join Waitlist" (links to `#waitlist`)
+---
 
-### Layout
-- Added `id="waitlist"` to the final-CTA section — all CTAs now deep-link to it
-- Added animated amber `.waitlist-badge` ("Pre-orders opening soon") above the waitlist headline
-- Added `.launch-status` line below the email form with placeholder Gumroad / Stripe links
+Date: 2026-06-15
+Time: Session 3 (continued)
+Changed by: Claude (with Cathy)
+What changed: Website light theme refresh — replaced all large dark/black backgrounds with warm off-whites and paper tones. Waitlist form redesigned as a light premium card.
+Why: The website felt too dark, especially the waitlist section. Dropdown and form options were almost black-on-black and unreadable. Goal was to match the warm, Scandinavian minimal mood of the companion app.
+Files affected: index.html, CHANGELOG.md, DEV_LOG.md
+Status: Done
+Next action: Continue testing the form on mobile. Consider lightening the footer in a future session.
 
-### Content
-- Rewards section label: "Kickstarter rewards" → "Early access pricing"
-- Rewards section intro: replaced Kickstarter campaign copy with pre-order waitlist framing
-- All three reward CTAs: "Select this reward" → "Notify me when open" (linked to `#waitlist`)
-- Waitlist section headline: "Be the first to hold Trace." → "Be among the first to live with Trace."
-- Waitlist section label: "Early access" → "Join the early access waitlist"
-- Waitlist section body: updated from backer count copy to pre-order framing
-- Email form note: "Early bird pricing ends when the campaign closes" → "One email when pre-orders open"
-- Success state: "You're in ✓" → "You're on the list ✓" with `--sage` background
+---
 
-### Interaction
-- Email form: wired to read `data-endpoint` attribute for future Formspree integration; submits via `fetch` when endpoint is set, falls back to client-side success state
-- Payment JS: added `[data-payment-url]` click handler — redirects to URL when set, no-ops when empty (ready for Gumroad or Stripe link population)
-- All reward CTAs carry `data-payment-url=""` placeholder — set to activate payment on pre-order launch
+Date: 2026-06-15
+Time: Session 2
+Changed by: Claude (with Cathy)
+What changed:
+  1. Product family renamed to official 3-product lineup:
+     - Trace Nær — Keychain Display (Phase 1)
+     - Trace Ro — Desktop Display (Phase 2)
+     - Trace Vid — Wall Display (Phase 3)
+  2. Waitlist form upgraded with 4 new market validation fields:
+     - Product interest (required) — radio cards
+     - Location / country (required) — 11-country dropdown
+     - Use case (optional) — 7 checkboxes
+     - Expected price range for Trace Nær (optional) — 4 price buttons
+  3. Success message updated: "You're on the list." / "We'll let you know when Trace becomes available."
+  4. README.md product table updated to new 3-product family.
+Why: Simplified product lineup from 4 to 3 for a clearer form-factor story. Upgraded waitlist from a single email field to a market research instrument ahead of crowdfunding — to learn which product has the most interest and in which countries, and to validate the Nær price point.
+Files affected: index.html, README.md, CHANGELOG.md, DEV_LOG.md
+Status: Done
+Next action: Review Formspree submissions after traffic to see which product and country leads.
 
-### Tooling
-- Applied Prettier formatting to `index.html` — normalized whitespace, indentation, and CSS property spacing across the entire 1,900-line file
-- Set up auto-format-on-save hook (PostToolUse → `npx prettier --write index.html`) via `.claude/settings.json`
-- Added project documentation: `CLAUDE.md` (design system reference), `README.md`, `CHANGELOG.md`, `DEV_LOG.md`
-- Added Claude Code skills: `/serve` (local HTTP preview), `/check-page` (HTML audit)
+---
+
+Date: 2026-06-15
+Time: Session 1 (urgent fix)
+Changed by: Claude (with Cathy)
+What changed: Connected the waitlist form to a live Formspree endpoint. Added missing Content-Type: application/json header to the fetch request.
+Why: The form was showing the success state locally but not actually sending any data anywhere — the endpoint was empty and the JSON header was missing. Real email capture required both to be set.
+Files affected: index.html, CHANGELOG.md, DEV_LOG.md
+Status: Done
+Next action: Monitor Formspree dashboard at formspree.io/f/maqzvqbw for incoming submissions.
+
+---
+
+Date: 2026-05-27
+Time: Session 1
+Changed by: Claude (with Cathy)
+What changed: Converted the page from a Kickstarter campaign format to a standalone GitHub Pages soft-launch landing page. Full content and CTA update to waitlist/pre-order framing.
+  - Page title: removed "| Kickstarter"
+  - Hero CTA: "Fund Now" → "Join the Waitlist"
+  - Stats bar: replaced funding metrics with soft-launch status (waitlist open, 3 display sizes, 2026 delivery)
+  - Rewards section: reframed from "Kickstarter rewards" to "Early access pricing"
+  - All reward CTAs: "Select this reward" → "Notify me when open"
+  - Waitlist headline updated to emotional pre-order framing
+  - Payment JS wired to data-payment-url attribute (placeholder, not active)
+  - Applied Prettier formatting across the full file
+  - Added CLAUDE.md, README.md, CHANGELOG.md, DEV_LOG.md to repository
+Why: Qonto bank account review is pending. Payment links are not available yet. GitHub Pages allows public link sharing and waitlist collection while payment is being set up. "Fund Now" buttons will be updated once payment links are approved.
+Files affected: index.html, README.md, CHANGELOG.md, DEV_LOG.md, CLAUDE.md
+Status: Done — payment CTAs still pending (placeholder links, not active)
+Next action: When Qonto bank review is approved and payment links are ready, update all data-payment-url="" attributes in index.html with real Gumroad or Stripe links.
+
+---
+
+Date: Before 2026-05-27
+Time: Initial build
+Changed by: Cathy
+What changed: HTML webpage designed and built as TRACE campaign landing page. File renamed to index.html and prepared for GitHub Pages publishing.
+Why: Needed a public-facing page to share the TRACE product concept and collect early interest while payment and crowdfunding setup is in progress.
+Files affected: index.html
+Status: Done
+Next action: Fund Now / payment buttons to be activated once Qonto bank review is complete and payment links (Gumroad or Stripe) are confirmed.
+
+---
+
+## Quick Reference
+
+| What to update | Where |
+|---|---|
+| Payment / Fund Now links | index.html — search `data-payment-url=""` and add real URL |
+| Formspree endpoint | index.html — `id="waitlistForm"` `data-endpoint="..."` |
+| Product names | index.html + README.md |
+| Page content | index.html |
+| Design decisions | DEV_LOG.md |
+| This log | CHANGELOG.md (this file) |
+
+---
+
+## Pending items
+
+- [ ] Payment links — waiting for Qonto bank review approval. When ready: add Gumroad or Stripe URLs to all `data-payment-url=""` attributes in index.html.
+- [ ] Fund Now buttons — currently show as "Notify me when open" and link to waitlist. Will be updated to real payment links when ready.
+- [ ] Consider lightening the website footer to match the new warm light theme.
