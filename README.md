@@ -14,12 +14,11 @@ Then open [http://localhost:8080](http://localhost:8080).
 
 ## Products
 
-| Name | Tier | Price |
-|------|------|-------|
-| Nær | Entry | £149 |
-| Hjem | Mid | £229 |
-| Rø | Premium | £329 |
-| Editions | Limited | — |
+| Name | Category | Phase |
+|------|----------|-------|
+| Trace Nær | Keychain Display | Phase 1 |
+| Trace Ro | Desktop Display | Phase 2 |
+| Trace Vid | Wall Display | Phase 3 |
 
 ## Project structure
 

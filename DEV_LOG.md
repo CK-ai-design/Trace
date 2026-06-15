@@ -75,6 +75,31 @@ Significant decisions, tradeoffs, and reasoning behind how this project is built
 
 ---
 
+## [2026-06-15] — Product naming consolidation + waitlist upgrade
+
+### Official 3-product family naming
+**Decision:** Adopt Trace Nær (Keychain Display), Trace Ro (Desktop Display), Trace Vid (Wall Display) as the official product family. Remove "Pocket", "Living Room", and "Statement" descriptors. Trace Hjem (home/fridge display) is no longer in the primary product lineup.
+
+**Why:** Simplifies the product story to 3 clearly distinct form factors — wearable/carried, desktop, wall — each with a memorable Nordic name and a functional English category label.
+
+**How to apply:** Never re-introduce "Pocket Display", "Living Room Display", or "Statement Display" as category labels. Always pair the Nordic name with its English category.
+
+### Waitlist form as market validation instrument
+**Decision:** Upgraded the single-email waitlist to a 5-field validation form: email, product interest (required), location (required), use case (optional checkboxes), price sensitivity (optional).
+
+**Why:** Pre-crowdfunding validation requires knowing which product has the most interest and in which markets. The price range question for Trace Nær directly informs whether the €49 entry price is the right anchor.
+
+**Tradeoff:** More fields = lower conversion rate. Mitigated by: making 2 of 4 added fields optional; using compact card/pill UI rather than a long survey; placing the most important question (product) immediately after email. Mobile collapse to 1-column avoids visual overload on small screens.
+
+**How to apply:** All 5 fields must be sent to Formspree as JSON. Never remove the required validation on email, product, or location — these 3 fields are the minimum viable dataset for a useful response.
+
+### Formspree field mapping
+**Decision:** Use flat JSON keys: `email`, `product`, `location`, `use_case` (comma-joined string), `price_range`. No nested objects.
+
+**Why:** Formspree's dashboard displays flat JSON keys as named columns. Nested objects are shown as raw JSON strings, which makes the dashboard unusable for non-technical stakeholders.
+
+---
+
 ## [2026-06-15] — Formspree live connection
 
 ### Waitlist form wired to real Formspree endpoint
