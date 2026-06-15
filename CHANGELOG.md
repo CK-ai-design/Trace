@@ -7,6 +7,15 @@ Categories: **Content**, **Design**, **Layout**, **Interaction**, **Tooling**
 
 ---
 
+## [2026-06-15]
+
+### Interaction
+- **URGENT FIX:** Connected waitlist form to live Formspree endpoint (`https://formspree.io/f/maqzvqbw`) — real email submissions now collected
+- Removed placeholder `data-endpoint=""` and TODO comments; `#waitlistForm` now has the live endpoint set directly in HTML
+- Added `Content-Type: application/json` header to the fetch submission so Formspree correctly parses the JSON body (previously only `Accept: application/json` was set, which would cause silent failures)
+
+---
+
 ## [2026-05-27]
 
 ### Content

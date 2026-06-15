@@ -1575,7 +1575,9 @@
         <div class="ks-header-progress-bar">
           <div class="ks-header-progress-fill"></div>
         </div>
-        <div class="ks-header-stat">Pre-orders opening soon · Waitlist now open</div>
+        <div class="ks-header-stat">
+          Pre-orders opening soon · Waitlist now open
+        </div>
       </div>
       <a href="#waitlist" class="ks-header-cta">Join Waitlist</a>
     </header>
@@ -2163,10 +2165,7 @@
               <div class="reward-item">Qi wireless charging pad</div>
               <div class="reward-item">Trace app (iOS + Android)</div>
               <!-- PAYMENT: set data-payment-url to Gumroad or Stripe link when ready -->
-              <a
-                href="#waitlist"
-                class="reward-cta"
-                data-payment-url=""
+              <a href="#waitlist" class="reward-cta" data-payment-url=""
                 >Notify me when open</a
               >
             </div>
@@ -2190,10 +2189,7 @@
               <div class="reward-item">2 × Qi wireless charging pads</div>
               <div class="reward-item">Priority shipping</div>
               <!-- PAYMENT: set data-payment-url to Gumroad or Stripe link when ready -->
-              <a
-                href="#waitlist"
-                class="reward-cta"
-                data-payment-url=""
+              <a href="#waitlist" class="reward-cta" data-payment-url=""
                 >Notify me when open</a
               >
             </div>
@@ -2220,10 +2216,7 @@
               <div class="reward-item">Trace Vid (Phase 3 delivery)</div>
               <div class="reward-item">Named in the credits</div>
               <!-- PAYMENT: set data-payment-url to Gumroad or Stripe link when ready -->
-              <a
-                href="#waitlist"
-                class="reward-cta"
-                data-payment-url=""
+              <a href="#waitlist" class="reward-cta" data-payment-url=""
                 >Notify me when open</a
               >
             </div>
@@ -2466,9 +2459,11 @@
           choice of display.
         </p>
         <div class="reveal reveal-delay-3">
-          <!-- TODO: Set action to Formspree endpoint when ready -->
-          <!-- Example: https://formspree.io/f/YOUR_FORM_ID -->
-          <div class="final-form" id="waitlistForm" data-endpoint="">
+          <div
+            class="final-form"
+            id="waitlistForm"
+            data-endpoint="https://formspree.io/f/maqzvqbw"
+          >
             <input
               class="final-input"
               type="email"
@@ -2588,8 +2583,6 @@
       }, 6000);
 
       // Waitlist signup
-      // TODO: Connect to Formspree by setting data-endpoint on #waitlistForm
-      // Example: data-endpoint="https://formspree.io/f/YOUR_FORM_ID"
       document
         .getElementById("notifyBtn")
         .addEventListener("click", function () {
@@ -2600,7 +2593,10 @@
             if (endpoint) {
               fetch(endpoint, {
                 method: "POST",
-                headers: { Accept: "application/json" },
+                headers: {
+                  Accept: "application/json",
+                  "Content-Type": "application/json",
+                },
                 body: JSON.stringify({ email: input.value }),
               }).catch(() => {});
             }

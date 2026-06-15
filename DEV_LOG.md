@@ -73,6 +73,19 @@ Significant decisions, tradeoffs, and reasoning behind how this project is built
 
 **How to apply:** New sections should follow this narrative arc. Don't flatten the page into a generic product page.
 
+---
+
+## [2026-06-15] — Formspree live connection
+
+### Waitlist form wired to real Formspree endpoint
+**Decision:** Set `data-endpoint="https://formspree.io/f/maqzvqbw"` directly in the HTML on `#waitlistForm`. Added `Content-Type: application/json` alongside the existing `Accept: application/json` header in the fetch call.
+
+**Why:** The form was previously in a fallback-only mode — `data-endpoint` was empty, so the JS showed the success state client-side but never submitted to any backend. Real email capture requires the endpoint to be set and the Content-Type header to be correct for Formspree's JSON API.
+
+**How to apply:** The form is now live. Any future endpoint changes (e.g. switching providers) only require updating `data-endpoint` on `#waitlistForm` — no JS changes needed.
+
+---
+
 ### Animation standard
 **Decision:** All transitions and animations use `cubic-bezier(0.22, 1, 0.36, 1)` — no linear or ease-in-out.
 
