@@ -417,7 +417,7 @@
 
       /* ── OPENING COPY ── */
       .opening {
-        background: var(--ink);
+        background: var(--paper);
         padding: 140px 80px;
         text-align: center;
         position: relative;
@@ -434,7 +434,7 @@
         font-size: 38vw;
         font-weight: 300;
         font-style: italic;
-        color: rgba(201, 160, 85, 0.03);
+        color: rgba(24, 20, 15, 0.04);
         white-space: nowrap;
         pointer-events: none;
         line-height: 1;
@@ -452,7 +452,7 @@
         font-size: clamp(22px, 3vw, 36px);
         font-weight: 300;
         line-height: 1.6;
-        color: var(--paper);
+        color: var(--ink);
       }
       .opening-text em {
         font-style: italic;
@@ -517,7 +517,7 @@
       }
 
       .product-reveal:nth-child(odd):not(:first-child) .product-copy-pane {
-        background: var(--ink);
+        background: #EAE3D6;
       }
 
       .product-phase {
@@ -547,12 +547,12 @@
         margin-bottom: 20px;
       }
 
-      /* Dark pane text */
+      /* Warm stone pane text */
       .product-reveal:nth-child(odd):not(:first-child) .product-name {
-        color: var(--paper);
+        color: var(--ink);
       }
       .product-reveal:nth-child(odd):not(:first-child) .product-body {
-        color: rgba(244, 236, 224, 0.45);
+        color: var(--grey);
       }
 
       .product-tagline {
@@ -617,7 +617,7 @@
       }
 
       .product-reveal:nth-child(odd):not(:first-child) .price-value {
-        color: var(--paper);
+        color: var(--ink);
       }
 
       .price-badge {
@@ -1311,8 +1311,8 @@
 
       /* ── FINAL CTA ── */
       .final-cta {
-        background: var(--ink);
-        padding: 140px 80px;
+        background: var(--cream);
+        padding: 120px 80px;
         text-align: center;
         position: relative;
         overflow: hidden;
@@ -1326,41 +1326,46 @@
         width: 600px;
         height: 600px;
         border-radius: 50%;
-        border: 1px solid rgba(201, 160, 85, 0.05);
+        border: 1px solid rgba(201, 160, 85, 0.1);
         pointer-events: none;
       }
 
       .final-inner {
-        max-width: 600px;
+        max-width: 560px;
         margin: 0 auto;
         position: relative;
         z-index: 2;
+        background: #FFFFFF;
+        border: 1px solid rgba(24, 20, 15, 0.08);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px rgba(24, 20, 15, 0.06), 0 1px 6px rgba(24, 20, 15, 0.04);
+        padding: 56px 52px 52px;
       }
       .final-label {
         font-family: "DM Mono", monospace;
         font-size: 9px;
         letter-spacing: 0.4em;
         text-transform: uppercase;
-        color: rgba(201, 160, 85, 0.45);
-        margin-bottom: 32px;
+        color: var(--amber);
+        margin-bottom: 24px;
       }
       .final-headline {
         font-family: "Cormorant Garamond", serif;
-        font-size: clamp(36px, 5vw, 60px);
+        font-size: clamp(34px, 4.5vw, 54px);
         font-weight: 300;
-        color: var(--paper);
+        color: var(--ink);
         line-height: 1.1;
-        margin-bottom: 20px;
+        margin-bottom: 16px;
       }
       .final-headline em {
         font-style: italic;
         color: var(--amber);
       }
       .final-body {
-        font-size: 16px;
+        font-size: 15px;
         line-height: 1.8;
-        color: rgba(244, 236, 224, 0.38);
-        margin-bottom: 48px;
+        color: var(--grey);
+        margin-bottom: 36px;
         letter-spacing: 0.02em;
       }
       .final-form {
@@ -1370,25 +1375,25 @@
       }
       .final-input {
         flex: 1;
-        padding: 16px 18px;
-        background: rgba(244, 236, 224, 0.06);
-        border: 1px solid rgba(244, 236, 224, 0.12);
-        border-right: none;
-        color: var(--paper);
+        padding: 14px 18px;
+        background: #FAF8F5;
+        border: 1px solid rgba(24, 20, 15, 0.13);
+        color: var(--ink);
         font-family: "Jost", sans-serif;
         font-weight: 300;
         font-size: 15px;
         outline: none;
+        border-radius: 8px;
         transition:
           border-color 0.2s,
           background 0.2s;
       }
       .final-input::placeholder {
-        color: rgba(244, 236, 224, 0.2);
+        color: rgba(24, 20, 15, 0.28);
       }
       .final-input:focus {
-        border-color: rgba(201, 160, 85, 0.4);
-        background: rgba(244, 236, 224, 0.09);
+        border-color: var(--amber);
+        background: #FFFFFF;
       }
       .final-btn {
         padding: 16px 26px;
@@ -1402,6 +1407,7 @@
         cursor: pointer;
         transition: opacity 0.2s;
         white-space: nowrap;
+        border-radius: 8px;
       }
       .final-btn:hover {
         opacity: 0.88;
@@ -1411,7 +1417,7 @@
         font-size: 8px;
         letter-spacing: 0.15em;
         text-transform: uppercase;
-        color: rgba(244, 236, 224, 0.13);
+        color: rgba(24, 20, 15, 0.3);
       }
 
       /* ── FOOTER ── */
@@ -1474,7 +1480,7 @@
         .rewards-section,
         .faq-section,
         .final-cta {
-          padding: 80px 32px;
+          padding: 64px 20px;
         }
         .how-section,
         .edition-section,
@@ -1514,6 +1520,10 @@
         }
         .footer-meta {
           text-align: center;
+        }
+        .final-inner {
+          padding: 40px 28px 36px;
+          border-radius: 14px;
         }
       }
       /* ── WAITLIST BADGE ── */
@@ -1555,15 +1565,15 @@
         font-size: 8px;
         letter-spacing: 0.15em;
         text-transform: uppercase;
-        color: rgba(244, 236, 224, 0.18);
+        color: rgba(24, 20, 15, 0.3);
       }
       .launch-status a {
-        color: rgba(201, 160, 85, 0.45);
+        color: var(--amber);
         text-decoration: none;
         transition: color 0.2s;
       }
       .launch-status a:hover {
-        color: var(--amber);
+        color: var(--char);
       }
 
       /* ── WAITLIST FORM EXTENDED ── */
@@ -1573,10 +1583,11 @@
         text-align: left;
       }
       .wl-email-row {
-        margin-bottom: 24px;
+        margin-bottom: 22px;
       }
       .wl-email-row .final-input {
         width: 100%;
+        border-right: 1px solid rgba(24, 20, 15, 0.13);
       }
       .wl-field {
         margin-bottom: 20px;
@@ -1586,7 +1597,7 @@
         font-size: 8px;
         letter-spacing: 0.25em;
         text-transform: uppercase;
-        color: rgba(244, 236, 224, 0.3);
+        color: rgba(24, 20, 15, 0.45);
         margin-bottom: 10px;
         display: flex;
         align-items: center;
@@ -1595,7 +1606,7 @@
       .wl-opt-tag {
         font-size: 7px;
         letter-spacing: 0.08em;
-        color: rgba(244, 236, 224, 0.16);
+        color: rgba(24, 20, 15, 0.25);
       }
       .wl-products {
         display: grid;
@@ -1606,8 +1617,10 @@
         display: flex;
         flex-direction: column;
         padding: 12px 14px;
-        border: 1px solid rgba(244, 236, 224, 0.1);
+        border: 1px solid rgba(24, 20, 15, 0.1);
+        border-radius: 8px;
         cursor: pointer;
+        background: #FAF8F5;
         transition:
           border-color 0.2s,
           background 0.2s;
@@ -1617,17 +1630,18 @@
         display: none;
       }
       .wl-product-opt:hover {
-        border-color: rgba(201, 160, 85, 0.25);
+        border-color: rgba(201, 160, 85, 0.5);
+        background: #FFFDF9;
       }
       .wl-product-opt.active {
         border-color: var(--amber);
-        background: rgba(201, 160, 85, 0.07);
+        background: rgba(201, 160, 85, 0.08);
       }
       .wl-product-name {
         font-family: "Cormorant Garamond", serif;
         font-size: 17px;
         font-weight: 300;
-        color: rgba(244, 236, 224, 0.75);
+        color: var(--char);
         line-height: 1.2;
       }
       .wl-product-cat {
@@ -1635,14 +1649,14 @@
         font-size: 7px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
-        color: rgba(244, 236, 224, 0.25);
+        color: rgba(24, 20, 15, 0.38);
         margin-top: 4px;
       }
       .wl-product-opt.active .wl-product-name {
-        color: rgba(244, 236, 224, 0.95);
+        color: var(--ink);
       }
       .wl-product-opt.active .wl-product-cat {
-        color: rgba(201, 160, 85, 0.55);
+        color: var(--amber);
       }
       .wl-select-wrap {
         position: relative;
@@ -1653,16 +1667,16 @@
         right: 14px;
         top: 50%;
         transform: translateY(-50%);
-        color: rgba(244, 236, 224, 0.22);
+        color: rgba(24, 20, 15, 0.35);
         pointer-events: none;
         font-size: 11px;
       }
       .wl-select {
         width: 100%;
         padding: 12px 36px 12px 14px;
-        background: rgba(244, 236, 224, 0.04);
-        border: 1px solid rgba(244, 236, 224, 0.1);
-        color: rgba(244, 236, 224, 0.5);
+        background: #FAF8F5;
+        border: 1px solid rgba(24, 20, 15, 0.13);
+        color: rgba(24, 20, 15, 0.55);
         font-family: "Jost", sans-serif;
         font-size: 14px;
         font-weight: 300;
@@ -1670,15 +1684,17 @@
         appearance: none;
         outline: none;
         cursor: pointer;
+        border-radius: 8px;
         transition: border-color 0.2s;
-        border-radius: 0;
       }
       .wl-select:focus {
-        border-color: rgba(201, 160, 85, 0.35);
-        color: rgba(244, 236, 224, 0.75);
+        border-color: var(--amber);
+        color: var(--ink);
+        background: #FFFFFF;
       }
       .wl-select option {
-        background: #18140f;
+        background: #FFFFFF;
+        color: #18140f;
       }
       .wl-checks {
         display: grid;
@@ -1692,25 +1708,28 @@
         cursor: pointer;
         font-size: 13px;
         font-weight: 300;
-        color: rgba(244, 236, 224, 0.4);
+        color: rgba(24, 20, 15, 0.55);
         transition: color 0.2s;
         user-select: none;
+        padding: 6px 0;
       }
       .wl-check input[type="checkbox"] {
         display: none;
       }
       .wl-check-box {
-        width: 14px;
-        height: 14px;
+        width: 15px;
+        height: 15px;
         flex-shrink: 0;
-        border: 1px solid rgba(244, 236, 224, 0.15);
+        border: 1px solid rgba(24, 20, 15, 0.2);
+        border-radius: 3px;
+        background: #FAF8F5;
         transition:
           border-color 0.2s,
           background 0.2s;
         position: relative;
       }
       .wl-check.active .wl-check-box {
-        border-color: rgba(201, 160, 85, 0.6);
+        border-color: var(--amber);
         background: rgba(201, 160, 85, 0.1);
       }
       .wl-check.active .wl-check-box::after {
@@ -1725,7 +1744,7 @@
         transform: rotate(-45deg);
       }
       .wl-check.active {
-        color: rgba(244, 236, 224, 0.72);
+        color: var(--ink);
       }
       .wl-prices {
         display: flex;
@@ -1734,27 +1753,32 @@
       }
       .wl-price {
         padding: 8px 14px;
-        border: 1px solid rgba(244, 236, 224, 0.1);
+        border: 1px solid rgba(24, 20, 15, 0.12);
+        border-radius: 6px;
+        background: #FAF8F5;
         cursor: pointer;
         font-family: "DM Mono", monospace;
         font-size: 9px;
         letter-spacing: 0.1em;
-        color: rgba(244, 236, 224, 0.32);
+        color: rgba(24, 20, 15, 0.45);
         transition:
           border-color 0.2s,
-          color 0.2s;
+          color 0.2s,
+          background 0.2s;
         user-select: none;
       }
       .wl-price input[type="radio"] {
         display: none;
       }
       .wl-price:hover {
-        border-color: rgba(201, 160, 85, 0.22);
-        color: rgba(244, 236, 224, 0.5);
+        border-color: rgba(201, 160, 85, 0.5);
+        color: rgba(24, 20, 15, 0.75);
+        background: #FFFDF9;
       }
       .wl-price.active {
-        border-color: rgba(201, 160, 85, 0.55);
+        border-color: var(--amber);
         color: var(--amber);
+        background: rgba(201, 160, 85, 0.07);
       }
       .wl-submit-row {
         margin-top: 28px;
@@ -1762,6 +1786,7 @@
       .wl-submit-btn {
         width: 100%;
         padding: 16px;
+        border-radius: 8px;
       }
       .wl-success {
         display: none;
@@ -1775,7 +1800,7 @@
         font-size: clamp(30px, 4.5vw, 48px);
         font-weight: 300;
         font-style: italic;
-        color: rgba(244, 236, 224, 0.92);
+        color: var(--ink);
         margin-bottom: 14px;
       }
       .wl-success-sub {

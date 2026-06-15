@@ -111,6 +111,24 @@ Significant decisions, tradeoffs, and reasoning behind how this project is built
 
 ---
 
+## [2026-06-15] — Light theme refresh
+
+### No more full-page dark backgrounds
+**Decision:** Replace all `background: var(--ink)` (near-black) full-section backgrounds with warm paper/cream equivalents. Dark espresso (`var(--ink)`) is now reserved for text, borders, and small accents only.
+
+**Why:** Three sections used `var(--ink)` as full-bleed backgrounds (opening, product panes, waitlist). The website read as a dark-mode admin interface rather than warm lifestyle hardware. The app prototype proved the brand reads better on warm off-whites — the website now aligns with that direction.
+
+**How to apply:** Do not reintroduce `background: var(--ink)` on section-level elements. For dark contrasts, use warm linen (`#EAE3D6`), paper (`var(--paper)`), or cream (`var(--cream)`). Footer stays dark — that's conventional and intentional.
+
+### Waitlist form card
+**Decision:** Moved `.final-inner` from being a plain centered container to an elevated white card (white bg, 1px border, 4px + 1px shadow, 56px padding, 18px border-radius).
+
+**Why:** The form fields were near-invisible on the dark background (light text, light borders). Flipping to a white card with dark text achieves full readability without changing any HTML or Formspree logic.
+
+**How to apply:** All `.wl-*` color values now use `rgba(24,20,15,...)` (dark ink) rather than `rgba(244,236,224,...)` (cream). This convention must be maintained if new fields are added.
+
+---
+
 ### Animation standard
 **Decision:** All transitions and animations use `cubic-bezier(0.22, 1, 0.36, 1)` — no linear or ease-in-out.
 

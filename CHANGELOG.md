@@ -1,5 +1,35 @@
 # Changelog
 
+---
+
+## [2026-06-15] — Light theme refresh: warmer website, readable waitlist
+
+### Design
+- **Removed all large dark ink backgrounds from the website.** Sections that were black/near-black are now warm off-white or paper beige:
+  - `.opening` section: `var(--ink)` → `var(--paper)` (#f2ece0). The "still" watermark adjusted to faint dark-on-light.
+  - Product copy panes (odd, previously ink): `var(--ink)` → `#EAE3D6` (warm stone).
+  - `.final-cta` (waitlist section): `var(--ink)` → `var(--cream)` (#faf7f1).
+- **Waitlist section redesigned as a premium light card.** `.final-inner` now has white background, 1px soft border, warm shadow, and 56px padding — reads as a distinct elevated card on the cream background.
+- Product copy pane text (headings, body, price values) updated from cream/light to `var(--ink)` / `var(--grey)` — readable on new warm stone background.
+
+### Interaction / Form
+- **All `.wl-*` form colors flipped from light-on-dark to dark-on-light.** Every rgba of `rgba(244,236,224,...)` replaced with the dark-ink equivalent for legibility on white card.
+- Email input, country dropdown, product cards, checkboxes, price buttons: now show `#FAF8F5` background, soft ink border, clear dark text.
+- Dropdown `<option>` background changed from `#18140f` (black) to `#FFFFFF` — browser-native options now readable.
+- Form field borders rounded (8px) to match app UI premium feel.
+- Submit button, product cards, price buttons all get matching `8px` border-radius.
+- Focus states updated: amber border replaces light-on-dark glow.
+
+### Typography
+- `.final-body` color: `rgba(244,236,224,0.38)` → `var(--grey)` — much higher contrast.
+- `.final-label` color: `rgba(201,160,85,0.45)` → `var(--amber)` — full amber on light.
+- `.final-note` and `.launch-status` colors updated from near-invisible cream to readable `rgba(24,20,15,0.3)`.
+- Form field labels (`.wl-label`) updated to `rgba(24,20,15,0.45)` — clearly readable.
+- Checkbox and price button text updated from barely-visible cream shades to `rgba(24,20,15,0.55)`.
+
+### Responsive
+- Mobile breakpoint padding for `.final-cta` and `.final-inner` card adjusted for small screens.
+
 All notable changes to the Trace landing page are documented here.
 
 Format: `[YYYY-MM-DD] Category — Description`
